@@ -1,0 +1,20 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+
+  &__title {
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  &__card {
+    width: 555px;
+    padding: 64px;
+    & * {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import './reset.scss';
+@import './theme.scss';
+
+html,
+body {
+  height: 100%;
+  font-family: 'Work Sans', sans-serif;
+}
+body {
+  background: radial-gradient(
+    1878.47px at 22.64% 17.46%,
+    #ff9212 0%,
+    #fcff80 100%
+  );
+}
+
+h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 10px;
+}
+
+button {
+  height: 40px;
+}

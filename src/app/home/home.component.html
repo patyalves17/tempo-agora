@@ -1,1 +1,16 @@
-<mat-card>card</mat-card>
+<div class="home">
+  <h1 class="home__title">Tempo Agora</h1>
+  <mat-card class="home__card">
+    <form [formGroup]="formCity" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Digite a sua cidade</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="city" />
+        <mat-icon matSuffix>my_location</mat-icon>
+      </mat-form-field>
+
+      <button type="submit" mat-raised-button color="primary">
+        Buscar
+      </button>
+    </form>
+  </mat-card>
+</div>
