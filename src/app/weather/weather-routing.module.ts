@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { WeatherComponent } from './weather.component';
 
-export const routes: Routes = [{ path: '', component: WeatherComponent }];
+export const routes: Routes = [{ path: ':city', component: WeatherComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

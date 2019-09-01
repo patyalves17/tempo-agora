@@ -5,7 +5,23 @@
       <mat-form-field appearance="outline">
         <mat-label>Digite a sua cidade</mat-label>
         <input matInput placeholder="Placeholder" formControlName="city" />
-        <mat-icon matSuffix>my_location</mat-icon>
+
+        <button
+          mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="get current location"
+          (click)="getLocation()"
+          type="button"
+        >
+          <mat-icon>my_location</mat-icon>
+        </button>
+
+        <mat-hint
+          *ngIf="!formCity.get('city').valid && showMessage"
+          class="warning"
+          >Digite o nome da cidade</mat-hint
+        >
       </mat-form-field>
 
       <button type="submit" mat-raised-button color="primary">
