@@ -1,0 +1,76 @@
+.weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+
+  &__title {
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  &__city {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #ff9212;
+    border-bottom: 1px solid #ff9212;
+    padding: 10px 0;
+    text-transform: capitalize;
+  }
+
+  &__card {
+    width: 555px;
+    padding: 64px;
+    & * {
+      width: 100%;
+    }
+    .warning {
+      text-align: end;
+    }
+
+    &__content {
+      flex-direction: row;
+      display: flex;
+      margin: 40px 0;
+      align-items: center;
+    }
+
+    &__tempeture {
+      font-size: 56px;
+      /* line-height: 20px; */
+      color: #a4a4a4;
+      text-align: center;
+      flex: 4;
+      border-right: 1px solid #ff9212;
+      padding: 20px 0;
+
+      &__deg {
+        font-size: 20px;
+        vertical-align: top;
+      }
+    }
+
+    &__message {
+      flex: 8;
+      padding: 30px 41px;
+      font-size: 16px;
+      line-height: 20px;
+      color: #a4a4a4;
+    }
+  }
+
+  &__back {
+    width: 555px;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-size: 24px;
+
+    &__icon {
+      transform: rotateY(180deg) scale(1.5);
+    }
+  }
+}

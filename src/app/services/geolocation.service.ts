@@ -14,6 +14,6 @@ export class GeolocationService {
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCDWLW2mAZYOBjN6QlYXG72XbZCk5HybAE`
       )
-      .pipe(tap(data => console.log(data), error => console.log(error)));
+      .pipe(tap(data => data, error => console.log(error)));
   }
 }

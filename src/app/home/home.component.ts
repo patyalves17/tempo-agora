@@ -2,6 +2,8 @@ import { GeolocationService } from './../services/geolocation.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { WeatherService } from '../services/wether.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +19,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private geolocationService: GeolocationService,
-    private router: Router
+    private weatherService: WeatherService,
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -44,7 +48,7 @@ export class HomeComponent implements OnInit {
         (error: PositionError) => console.log(error)
       );
     } else {
-      alert('Geolocation is not supported by this browser.');
+      this.alert('Geolocalização não suportada.');
     }
   }
 
@@ -54,7 +58,19 @@ export class HomeComponent implements OnInit {
     } else {
       this.showMessage = false;
       const city = this.formCity.value.city;
-      this.router.navigate(['weather', city]);
+
+      this.weatherService.getTempeture(city).subscribe(result => {
+        if (result) {
+          this.router.navigate(['weather', city]);
+        } else {
+          this.alert('Cidade não encontrada');
+        }
+      });
     }
+  }
+  alert(message: string) {
+    this._snackBar.open(message, 'Fechar', {
+      duration: 3000
+    });
   }
 }

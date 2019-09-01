@@ -1,1 +1,22 @@
-<h1>weather</h1>
+<div class="weather">
+  <h1 class="weather__title">Tempo Agora</h1>
+  <mat-card class="weather__card">
+    <h2 class="weather__city">{{ city }}</h2>
+
+    <div class="weather__card__content">
+      <div class="weather__card__tempeture">
+        {{ weather?.temp }}
+        <span class="weather__card__tempeture__deg">&deg;C</span>
+      </div>
+      <div class="weather__card__message">
+        {{ getMessage(weather?.temp) }}
+      </div>
+    </div>
+  </mat-card>
+  <div class="weather__back">
+    <a [routerLink]="''">
+      <mat-icon class="weather__back__icon">arrow_right_alt</mat-icon>
+      voltar
+    </a>
+  </div>
+</div>

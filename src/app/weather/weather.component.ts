@@ -4,10 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-weather',
-  templateUrl: 'weather.component.html'
+  templateUrl: 'weather.component.html',
+  styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent implements OnInit {
   city: string;
+  weather: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -16,9 +18,23 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     this.city = this.route.snapshot.params['city'];
-    console.log(this.city);
-    this.weatherService.getTempeture(this.city).subscribe(data => {
-      console.log('component', data);
+    this.weatherService.tempetura.subscribe(temp => {
+      if (temp) {
+        this.weather = temp;
+      } else {
+        this.getTempeture();
+      }
     });
+  }
+
+  getTempeture() {
+    this.weatherService.getTempeture(this.city).subscribe(result => {
+      if (result) {
+        this.weather = result.data[0];
+      }
+    });
+  }
+  getMessage(temp: number): string {
+    return this.weatherService.getMessage(temp);
   }
 }
