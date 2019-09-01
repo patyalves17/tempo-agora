@@ -14,6 +14,26 @@ export class GeolocationService {
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCDWLW2mAZYOBjN6QlYXG72XbZCk5HybAE`
       )
-      .pipe(tap(data => data, error => console.log(error)));
+      .pipe(
+        tap(
+          data => {
+            return data;
+          },
+
+          error => console.log(error)
+        )
+      );
+  }
+
+  getcity(geoData): string {
+    let city = '';
+    console.log(geoData);
+    geoData.array.forEach(element => {
+      if (element.types[0] == 'administrative_area_level_2') {
+        city = element.long_name;
+        return;
+      }
+    });
+    return city;
   }
 }

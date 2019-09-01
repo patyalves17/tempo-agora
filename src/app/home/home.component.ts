@@ -41,7 +41,10 @@ export class HomeComponent implements OnInit {
             this.geolocationService
               .getCity(this.lat, this.lng)
               .subscribe(data => {
-                console.log('component ', data);
+                if (data.results.length > 0) {
+                } else {
+                  this.alert('Googleapis limite diario excedido =( ');
+                }
               });
           }
         },
