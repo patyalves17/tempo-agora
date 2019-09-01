@@ -14,7 +14,7 @@ export class WeatherService {
   getTempeture(city: string): Observable<any> {
     return this.http
       .get(
-        `http://api.weatherbit.io/v1.0/current/geosearch?city=${city}&key=191eaf36b8a24c31b1044543754a1636`
+        `https://api.weatherbit.io/v1.0/current/geosearch?city=${city}&key=191eaf36b8a24c31b1044543754a1636`
       )
       .pipe(
         tap(
