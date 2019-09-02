@@ -57,13 +57,18 @@
       font-size: 56px;
       color: #a4a4a4;
       text-align: center;
-      flex: 4;
+      flex: 9;
       border-bottom: 1px solid #ff9212;
       padding: 20px 10px;
 
       @media (min-width: 556px) {
+        flex: 9;
         border-bottom: 0px solid #ff9212;
         border-right: 1px solid #ff9212;
+      }
+
+      @media (min-width: 772px) {
+        flex: 4;
       }
 
       &__deg {

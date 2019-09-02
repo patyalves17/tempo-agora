@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material';
 export class HomeComponent implements OnInit {
   formCity: FormGroup;
   showMessage: boolean;
+  loading = false;
 
   public lat;
   public lng;
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
 
   getLocation() {
     if (navigator.geolocation) {
+      this.loading = true;
       navigator.geolocation.getCurrentPosition(
         (position: Position) => {
           if (position) {
@@ -43,12 +45,14 @@ export class HomeComponent implements OnInit {
               .subscribe(data => {
                 if (data.results.length > 0) {
                 } else {
+                  this.loading = false;
                   this.alert('Googleapis limite diario excedido =( ');
                 }
               });
           }
         },
-        (error: PositionError) => console.log(error)
+        (error: PositionError) =>
+          this.alert('Geolocalização negada pelo usuário')
       );
     } else {
       this.alert('Geolocalização não suportada.');
