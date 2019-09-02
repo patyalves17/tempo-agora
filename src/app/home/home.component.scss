@@ -11,14 +11,10 @@
   }
 
   &__card {
-    // width: 555px;
     padding: 25px;
     width: 230px;
 
     @media (min-width: 556px) {
-      // width: 310px;
-      // padding: 64px;
-
       width: 396px;
       padding: 39px;
     }
