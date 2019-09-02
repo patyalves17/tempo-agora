@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,27 +7,22 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class WeatherService {
-  public tempetura = new BehaviorSubject<any>(null);
+  public responseCache = new Map();
 
   constructor(private http: HttpClient) {}
 
   getTempeture(city: string): Observable<any> {
-    return this.http
-      .get(
-        `https://api.weatherbit.io/v1.0/current/geosearch?city=${city}&key=191eaf36b8a24c31b1044543754a1636`
-      )
-      .pipe(
-        tap(
-          result => {
-            if (result) {
-              this.tempetura.next(result.data[0]);
-            }
-            return result;
-          },
+    const url = `https://api.weatherbit.io/v1.0/current/geosearch?city=${city}&key=191eaf36b8a24c31b1044543754a1636`;
+    const tempetureFromCache = this.responseCache.get(url);
 
-          error => console.log(error)
-        )
-      );
+    if (tempetureFromCache) {
+      return of(tempetureFromCache);
+    }
+
+    const response = this.http.get<any>(url);
+
+    response.subscribe(tempeture => this.responseCache.set(url, tempeture));
+    return response;
   }
 
   getMessage(temp: number) {

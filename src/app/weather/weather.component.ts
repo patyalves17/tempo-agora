@@ -18,13 +18,7 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     this.city = this.route.snapshot.params['city'];
-    this.weatherService.tempetura.subscribe(temp => {
-      if (temp) {
-        this.weather = temp;
-      } else {
-        this.getTempeture();
-      }
-    });
+    this.getTempeture();
   }
 
   getTempeture() {

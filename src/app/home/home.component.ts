@@ -62,13 +62,16 @@ export class HomeComponent implements OnInit {
       this.showMessage = false;
       const city = this.formCity.value.city;
 
-      this.weatherService.getTempeture(city).subscribe(result => {
-        if (result) {
-          this.router.navigate(['weather', city]);
-        } else {
-          this.alert('Cidade não encontrada');
-        }
-      });
+      this.weatherService.getTempeture(city).subscribe(
+        result => {
+          if (result) {
+            this.router.navigate(['weather', city]);
+          } else {
+            this.alert('Cidade não encontrada');
+          }
+        },
+        error => this.alert('Desculpe estamos com problemas no serviço.')
+      );
     }
   }
   alert(message: string) {
