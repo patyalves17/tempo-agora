@@ -2,27 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
 
-## Development server
+https://paty-tempo-agora.herokuapp.com/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# tempo-agora
+<img width="1439" alt="Screen Shot 2022-11-11 at 22 40 36" src="https://user-images.githubusercontent.com/14838416/201450772-9df3b086-0add-44ff-bdb5-a4d5341cce8a.png">
+<img width="1436" alt="Screen Shot 2022-11-11 at 22 40 48" src="https://user-images.githubusercontent.com/14838416/201450779-8aef68ba-dfd0-49fd-8aa0-2085864fd896.png">
+<img width="1439" alt="Screen Shot 2022-11-11 at 22 40 57" src="https://user-images.githubusercontent.com/14838416/201450786-a853ab3a-db53-4dc4-ba83-c42059c3b55d.png">
