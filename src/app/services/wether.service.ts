@@ -12,7 +12,7 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
 
   getTempeture(city: string): Observable<any> {
-    const url = `https://api.weatherbit.io/v1.0/current/geosearch?city=${city}&key=27c4a658156947d48017a0dbaa0e5a3e`;
+    const url = `http://api.weatherbit.io/v1.0/current/geosearch?city=${city}&key=27c4a658156947d48017a0dbaa0e5a3e`;
     const tempetureFromCache = this.responseCache.get(url);
 
     if (tempetureFromCache) {
